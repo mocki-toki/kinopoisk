@@ -1,4 +1,5 @@
 import 'package:kinopoisk_base/movie/movie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MovieListTileWidget extends StatelessWidget {
   const MovieListTileWidget(this.movie, {super.key});
@@ -7,48 +8,52 @@ class MovieListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        color: Theme.of(context).hoverColor,
-      ),
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      padding: const EdgeInsets.all(12),
-      child: Row(
-        children: [
-          _Poster(movie.poster),
-          const SizedBox(width: 15),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  movie.name ?? 'No name',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+    return InkWell(
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+      onTap: () => launchUrl(Uri.parse('https://www.kinopoisk.ru/film/${movie.id}')),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          color: Theme.of(context).hoverColor,
+        ),
+        margin: const EdgeInsets.symmetric(vertical: 4),
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          children: [
+            _Poster(movie.poster),
+            const SizedBox(width: 15),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    movie.name ?? 'No name',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  movie.year.toString(),
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
+                  const SizedBox(height: 4),
+                  Text(
+                    movie.year.toString(),
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  movie.genres.join(', '),
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
+                  const SizedBox(height: 4),
+                  Text(
+                    movie.genres.join(', '),
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
