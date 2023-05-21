@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "client",
+      "request": "launch",
+      "type": "dart",
+      "program": "kinopoisk_client/lib/main.dart"
+    }
+  ]
+}

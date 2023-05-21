@@ -1,0 +1,52 @@
+name: kinopoisk_base
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.8.0
+
+  fpdart: ^0.5.0
+  uuid: ^3.0.7
+  ansicolor: ^2.0.1
+
+  pansy_arch_flutter:
+    git:
+      url: https://github.com/mocki-toki/pansy_architecture.git
+      path: packages/pansy_arch_flutter
+  pansy_arch_go_router:
+    git:
+      url: https://github.com/mocki-toki/pansy_architecture.git
+      path: packages/pansy_arch_go_router
+
+  retrofit: ^4.0.1
+
+  flutter_bloc: ^8.1.2
+
+  intl: ^0.18.1
+
+  flutter_animate: ^4.1.1+1
+  diffutil_sliverlist: ^0.5.1
+  cached_network_image: ^3.2.3
+  shimmer: ^2.0.0
+  url_launcher: ^6.1.11
+
+dependency_overrides:
+  graphs: 2.2.0
+  build_runner: 2.3.3
+
+dev_dependencies:
+  build_runner: ^2.4.4
+
+  dino_generator: ^1.0.0-pre.4
+
+  freezed: ^2.3.2
+  json_serializable: ^6.6.1
+
+  retrofit_generator: ^7.0.1

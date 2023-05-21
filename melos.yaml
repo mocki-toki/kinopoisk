@@ -1,0 +1,15 @@
+name: kinopoisk_monorepo
+
+packages:
+  - .
+  - kinopoisk_client
+  - modules/**
+
+scripts:
+  pub:major: 'dart run melos exec "flutter pub upgrade --major-versions"'
+  test: 'dart run melos exec --dir-exists="test" "flutter test --dart-define=environment=testing" '
+  integration_test: 'dart run melos exec --dir-exists="integration_test" "flutter test integration_test --dart-define=environment=testing" '
+  coverage: 'dart run melos exec --dir-exists="test" "flutter test --coverage"'
+  generate: 'dart run melos exec --depends-on build_runner "dart run build_runner build --delete-conflicting-outputs" '
+  clean: 'dart run melos exec --depends-on flutter flutter clean && find -E . -regex ".*((g|freezed)\.dart|pubspec\.lock|\.DS_Store)" -type f -delete'
+  fresh: "dart run melos run clean && flutter pub get && dart run melos bootstrap && dart run melos run generate"

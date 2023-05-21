@@ -1,0 +1,35 @@
+{
+  "st": {
+    "scope": "dart",
+    "prefix": "st",
+    "description": "StatelessWidget",
+    "body": [
+      "class ${1:MyWidget} extends StatelessWidget {",
+      "  const ${1:MyWidget}({super.key});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Container();",
+      "  }",
+      "}"
+    ]
+  },
+  "vmstate": {
+    "scope": "dart",
+    "prefix": "vmstate",
+    "description": "ViewModel State",
+    "body": [
+      "@freezed",
+      "",
+      "class ${1:ViewModel}State with _$${1:ViewModel}State {",
+      "  const factory ${1:ViewModel}State.empty() = ${1:ViewModel}StateEmpty;",
+      "",
+      "  const factory ${1:ViewModel}State.loading() = ${1:ViewModel}StateLoading;",
+      "",
+      "  const factory ${1:ViewModel}State.loaded() = ${1:ViewModel}StateLoaded;",
+      "",
+      "  const factory ${1:ViewModel}State.failure(Failure failure) = ${1:ViewModel}StateFailure;",
+      "}"
+    ]
+  }
+}

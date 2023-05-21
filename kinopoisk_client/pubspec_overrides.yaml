@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: kinopoisk_base
+dependency_overrides:
+  kinopoisk_base:
+    path: ../modules/kinopoisk_base
