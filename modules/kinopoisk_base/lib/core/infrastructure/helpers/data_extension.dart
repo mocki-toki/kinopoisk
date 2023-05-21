@@ -36,12 +36,12 @@ extension DataExtension<T> on Future<T> {
   }
 
   Failure _handleDioError(DioError e) {
-    if (e.response?.data?.containsKey('message')) {
-      return BackendFailure(e.response?.data['message']);
-    }
-
     if (e.error is SocketException) {
       return NetworkFailure();
+    }
+
+    if (e.response?.data?.containsKey('message')) {
+      return BackendFailure(e.response?.data['message']);
     }
 
     return BackendFailure('$e');
